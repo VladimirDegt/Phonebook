@@ -9,19 +9,19 @@ import { getItemLocalStorage, setItemLocalStorage } from "localStorage";
 export function App(){
   const [contacts, setContacts] = useState([])
 
-  useEffect(()=>{
-    if(!getItemLocalStorage()){
-      setItemLocalStorage(contacts)
-    } else {
-        setContacts(JSON.parse(getItemLocalStorage()))
-    }
-  }, []);
+  // useEffect(()=>{
+  //   if(!getItemLocalStorage()){
+  //     setItemLocalStorage(contacts)
+  //   } else {
+  //       setContacts(JSON.parse(getItemLocalStorage()))
+  //   }
+  // }, []);
 
-  useEffect(()=>{
-    if(contacts.length !== 0){
-      setItemLocalStorage(contacts)
-    }
-  }, [contacts]);
+  // useEffect(()=>{
+  //   if(contacts.length !== 0){
+  //     setItemLocalStorage(contacts)
+  //   }
+  // }, [contacts]);
 
   function createContact(data){
     const newContact = {
