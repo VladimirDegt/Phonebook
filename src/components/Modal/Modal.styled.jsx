@@ -107,6 +107,13 @@ export const StyledTextArea = styled.textarea`
   :hover,
   :focus {
     border: 1.5px solid #3f51b5;
+  }
+
+  @media (min-width: 768px) {
+    width: 484px;
+    font-weight: 500;
+    font-size: 16px;
+  }  
 `
 export const StyledButtonModal = styled.button`
   padding: 8px;
