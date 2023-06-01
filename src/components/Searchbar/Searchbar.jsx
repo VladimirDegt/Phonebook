@@ -10,9 +10,13 @@ function handleInputChange ({target}) {
     setVisibleContact(target.value.toLowerCase())
   };
 
-function handleButtonClick(){
+function handleModalOpen(){
   setIsOpenModal(true)
 };
+
+function ModalClose(){
+  setIsOpenModal(false)
+}
 
 return (
   <StyledHeader>
@@ -21,13 +25,13 @@ return (
         type="text"
         autoComplete="off"
         autoFocus
-        placeholder="Введіть назву замовника"
+        placeholder="Пошук замовника"
         onChange={handleInputChange}
         value={visibleContact}
       />
     </StyledForm>
-    <StyledButtonClick type="button" onClick={handleButtonClick}>Додати замовника</StyledButtonClick>
-    {isOpenModal && <Modal/>}
+    <StyledButtonClick type="button" onClick={handleModalOpen}>Додати замовника</StyledButtonClick>
+    {isOpenModal && <Modal ModalClose={ModalClose}/>}
   </StyledHeader>
 )
 }

@@ -9,10 +9,7 @@ export const StyledHeader = styled.header`
   justify-content: center;
   align-items: center;
   min-height: 64px;
-  padding-right: 24px;
-  padding-left: 24px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding: 10px;
   color: #fff;
   background-color: #3f51b5;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
@@ -25,7 +22,7 @@ export const StyledForm = styled.form`
   width: 100%;
   max-width: 600px;
   background-color: #fff;
-  border-radius: 3px;
+  border-radius: 4px;
   overflow: hidden;
 `
 export const StyledFormInput = styled.input`
@@ -43,8 +40,8 @@ export const StyledFormInput = styled.input`
   }
 `
 export const StyledButtonClick = styled.button`
-  padding: 8px 16px;
-  border-radius: 2px;
+  padding: 8px;
+  border-radius: 4px;
   background-color: #d2d0cc;
   text-align: center;
   display: inline-block;
@@ -58,7 +55,6 @@ export const StyledButtonClick = styled.button`
   line-height: 24px;
   font-style: normal;
   font-weight: 500;
-  min-width: 180px;
   margin-left: 10px;
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
   0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
@@ -66,7 +62,7 @@ export const StyledButtonClick = styled.button`
 
 :hover,
 :focus {
-  background-color: white;
-  color: black;
+  background-color: #FAFAFA;
+  color: #111111;
 `
 
