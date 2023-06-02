@@ -1,3 +1,6 @@
+import { ref, push, set } from 'firebase/database';
+import { db } from "utils/firebase";
+import { useState } from "react";
 import { 
     StyledBackdrop, 
     StyledModal, 
@@ -9,8 +12,6 @@ import {
     StyledButtonModal,
 } from "./Modal.styled";
 import IconClose from "utils/search-svg";
-import { useState } from "react";
-import { database } from "index";
 
 export function Modal({ModalClose}){
     const [firstName, setFirstName] = useState('');
@@ -52,15 +53,30 @@ export function Modal({ModalClose}){
             textarea,
         };
         
+        const contactRef = push(ref(db, 'contacts'));
+        set(contactRef, contact)
+          .then(() => {
+            // Успешно добавлено в базу данных
+            setFirstName('');
+            setSecondName('');
+            setEmail('');
+            setNumber('');
+            setTextarea('');
+          })
+          .catch((error) => {
+            // Обработка ошибки
+            console.error("Ошибка при добавлении в базу данных: ", error);
+          }); 
+        
+
         setFirstName('');
         setSecondName('');
         setEmail('');
         setNumber('');
         setTextarea('');
-      };
+    };
 
     function handlerModalClose(){
-        console.log(database);
         ModalClose()
     };
 
@@ -75,7 +91,6 @@ export function Modal({ModalClose}){
                     <StyledInputModal
                         type="text"
                         autoComplete="on"
-                        autoFocus
                         placeholder="Назва підприємства"
                         name="firstName"
                         onChange={handleInputVisible}
