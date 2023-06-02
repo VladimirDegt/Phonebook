@@ -25,7 +25,7 @@ return (
         type="text"
         autoComplete="off"
         autoFocus
-        placeholder="Пошук замовника"
+        placeholder="Новий"
         onChange={handleInputChange}
         value={visibleContact}
       />
