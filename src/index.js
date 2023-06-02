@@ -15,7 +15,7 @@ const firebaseConfig = {
   appId: "1:138103350330:web:466a9bf9bf630c54184103"
 };
 const app = initializeApp(firebaseConfig);
-export const database = getDatabase(app);
+export const db = getDatabase(app);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
