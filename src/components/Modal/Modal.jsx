@@ -1,6 +1,7 @@
-import { ref, push, set, get } from 'firebase/database';
+import { ref, push, set } from 'firebase/database';
 import { db } from "utils/firebase";
 import { useState } from "react";
+import { nanoid } from 'nanoid'
 import { 
     StyledBackdrop, 
     StyledModal, 
@@ -52,6 +53,7 @@ export function Modal({ModalClose}){
           }
     
         const contact = {
+            id: nanoid(),
             firstName,
             secondName,
             email,
@@ -75,24 +77,6 @@ export function Modal({ModalClose}){
             console.error("Ошибка при добавлении в базу данных: ", error);
           }); 
     };
-
-    // Получение ссылки на "contacts" в базе данных
-const contactsRef = ref(db, 'contacts');
-
-// Получение данных из базы данных
-get(contactsRef)
-  .then((snapshot) => {
-    if (snapshot.exists()) {
-      const data = snapshot.val();
-    const values = Object.values(data);
-    console.log(values);
-    } else {
-      console.log('Данные не найдены');
-    }
-  })
-  .catch((error) => {
-    console.error('Ошибка при получении данных из базы данных:', error);
-  });
 
 // Слушатель изменений в базе данных
 // onValue(contactsRef, (snapshot) => {
