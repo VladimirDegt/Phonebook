@@ -79,65 +79,57 @@ export const StyledButtonList = styled.ul`
   }
 `
 
-export const StyledButtonModal = styled.button`
-  width: 125px;
-  height: 50px;
-  padding: 8px;
-  border-radius: 8px;
-  background-color: #3f51b5;
-  text-align: center;
-  display: inline-block;
-  color: #FAFAFA;
-  border: 0;
-  outline: none;
-  text-decoration: none;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 18px;
-  line-height: 24px;
-  font-style: normal;
-  font-weight: 500;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-  0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-:hover,
-:focus {
-  background-color: #FAFAFA;
-  color: #3f51b5;
-}
-`
 export const StyledLink = styled.a`
-box-sizing: border-box; 
-display: inline-block;
-width: 125px;
-padding: 8px;
-border-radius: 8px;
-background-color: #3f51b5;
-text-align: center;
+    box-sizing: border-box; 
+    display: inline-block;
+    width: 75px;
+    height: 50px;
+    padding: 4px;
+    border-radius: 8px;
+    background-color: #FAFAFA;
+    text-align: center;
+    vertical-align: middle;
+    border: 0;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-color: #FAFAFA;
-border: 0;
-outline: none;
-text-decoration: none;
-cursor: pointer;
-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    svg {
+      margin-top: 8px;
+    }
 
-:hover,
-:focus {
-  background-color: #FAFAFA;
+    @media (min-width: 768px) {
+        width: 125px;
+  }
 
-svg {
-  fill: green;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1); 
-}
-}
 `
+
 export const StyledSpan = styled.span`
   font-size: 18px;
 
-  :nth-of-type(odd) {
+  :nth-child(odd) {
     font-weight: bold;
+`
+export const StyledInfoList = styled.ul`
+    display: flex;
+    flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0;
+  gap: 20px;
+  margin-top: 30px;
+  width: 100%;
+  list-style-type: none;
+
+  li p {
+    padding: 0;
+    margin: 0;
+  }
+
+  li h3 {
+    padding: 0;
+    margin: 0;
+  }
 `

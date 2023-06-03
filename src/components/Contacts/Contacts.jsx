@@ -8,7 +8,13 @@ export function ContactsList({visibleContact}){
     const [contact, setContact] = useState('');
     const [listContacts, setListContacts] = useState([]);
     const [isOpenModal, setIsOpenModal] = useState(false);
-    
+    const [id, setId] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [secondName, setSecondName] = useState('');
+    const [email, setEmail] = useState('');
+    const [number, setNumber] = useState('');
+    const [textarea, setTextarea] = useState('');
+
     useEffect(()=>{
         if(visibleContact !== contact){
             setContact(visibleContact)
@@ -36,7 +42,13 @@ export function ContactsList({visibleContact}){
             }
     },[contact, visibleContact]);
 
-    function handleBtnClick() {
+    function handleBtnClick(id, firstName, secondName, email, number, textarea) {
+        setId(id);
+        setFirstName(firstName);
+        setSecondName(secondName);
+        setEmail(email);
+        setNumber(number);
+        setTextarea(textarea);
         handleModalOpen();
     };
 
@@ -52,13 +64,21 @@ export function ContactsList({visibleContact}){
         <>
         <StyledContainerList>
         {contact &&
-        listContacts.map((item) => 
-            <li key={item.id}>
-                <StyledItemList onClick={handleBtnClick}>{item.firstName}</StyledItemList>
+        listContacts.map(({id, firstName, secondName, email, number, textarea}) => 
+            <li key={id}>
+                <StyledItemList onClick={()=>handleBtnClick(id, firstName, secondName, email, number, textarea)}>{firstName}</StyledItemList>
             </li>)
         }
         </StyledContainerList>
-        {isOpenModal && <ModalCall ModalClose={ModalClose}/>}
+        {isOpenModal && <ModalCall 
+        ModalClose={ModalClose}
+        id = {id}
+        firstName = {firstName}
+        secondName = {secondName}
+        email = {email}
+        number = {number}
+        textarea = {textarea}
+        />}
         </>
     )
 
