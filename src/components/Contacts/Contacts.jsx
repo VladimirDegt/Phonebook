@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { db } from "utils/firebase";
 import { ref, get } from "firebase/database";
+import { StyledContainerList, StyledItemList } from "./Contacts.styled";
+import { ModalCall } from "components/ModalCall/ModalCall";
 
 export function ContactsList({visibleContact}){
     const [contact, setContact] = useState('');
     const [listContacts, setListContacts] = useState([]);
+    const [isOpenModal, setIsOpenModal] = useState(false);
     
     useEffect(()=>{
         if(visibleContact !== contact){
@@ -33,12 +36,30 @@ export function ContactsList({visibleContact}){
             }
     },[contact, visibleContact]);
 
+    function handleBtnClick() {
+        handleModalOpen();
+    };
+
+    function handleModalOpen(){
+        setIsOpenModal(true)
+      };
+      
+      function ModalClose(){
+        setIsOpenModal(false)
+      };
+
     return(
-        <ul>
+        <>
+        <StyledContainerList>
         {contact &&
-        listContacts.map((item) => <li key={item.id}>{item.firstName}</li>)
+        listContacts.map((item) => 
+            <li key={item.id}>
+                <StyledItemList onClick={handleBtnClick}>{item.firstName}</StyledItemList>
+            </li>)
         }
-        </ul>
+        </StyledContainerList>
+        {isOpenModal && <ModalCall ModalClose={ModalClose}/>}
+        </>
     )
 
 }

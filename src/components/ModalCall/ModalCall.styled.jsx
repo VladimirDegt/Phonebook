@@ -66,53 +66,6 @@ export const StyledFormModal = styled.form`
   gap: 14px;
 `
 
-export const StyledInputModal = styled.input`
-  width: 100%;
-  min-height: 14px;
-  outline: none;
-  border: 1.5px solid rgba(17, 17, 17, 0.05);
-  padding: 14px 18px;
-  border-radius: 8px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  :hover,
-  :focus {
-    border: 1.5px solid #3f51b5;
-  }
-
-  @media (min-width: 768px) {
-    font-weight: 500;
-    font-size: 16px;
-  }  
-`
-export const StyledTextArea = styled.textarea`
-  width: 280px;
-  resize: none;
-  overflow: auto;
-  outline: none;
-  border-radius: 8px;
-  padding-left: 18px;
-  padding-top: 14px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  border: 1.5px solid rgba(17, 17, 17, 0.05);
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  :hover,
-  :focus {
-    border: 1.5px solid #3f51b5;
-  }
-
-  @media (min-width: 768px) {
-    width: 484px;
-    font-weight: 500;
-    font-size: 16px;
-  }  
-`
 export const StyledButtonModal = styled.button`
   padding: 8px;
   border-radius: 8px;
