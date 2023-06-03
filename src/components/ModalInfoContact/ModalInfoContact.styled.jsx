@@ -65,6 +65,27 @@ export const StyledFormModal = styled.form`
   padding: 0px;
   gap: 14px;
 `
+export const StyledInfoList = styled.ul`
+    display: flex;
+    flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0;
+  gap: 20px;
+  margin-top: 30px;
+  width: 100%;
+  list-style-type: none;
+
+  li p {
+    padding: 0;
+    margin: 0;
+  }
+
+  li h3 {
+    padding: 0;
+    margin: 0;
+  }
+`
+
 export const StyledButtonList = styled.ul`
   display: flex;
   justify-content: space-evenly;
@@ -97,6 +118,11 @@ export const StyledLink = styled.a`
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
+    :hover,
+    :focus {
+      background-color: #0285f7;
+    }
+
     svg {
       margin-top: 8px;
     }
@@ -112,24 +138,4 @@ export const StyledSpan = styled.span`
 
   :nth-child(odd) {
     font-weight: bold;
-`
-export const StyledInfoList = styled.ul`
-    display: flex;
-    flex-direction: column;
-  justify-content: space-evenly;
-  padding: 0;
-  gap: 20px;
-  margin-top: 30px;
-  width: 100%;
-  list-style-type: none;
-
-  li p {
-    padding: 0;
-    margin: 0;
-  }
-
-  li h3 {
-    padding: 0;
-    margin: 0;
-  }
 `

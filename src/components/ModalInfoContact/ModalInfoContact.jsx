@@ -60,12 +60,12 @@ export function ModalInfoContact({firstName, secondName, email, number, textarea
                             </StyledLink>
                         </li>
                         <li>
-                            <StyledLink href={`tel:+38${number}`} onClick={handlerModalClose}>
+                            <StyledLink href={`viber://chat?number=+38${number}`} onClick={handlerModalClose}>
                                 <IconViber/>
                             </StyledLink>
                         </li>
                         <li>
-                            <StyledLink href={`tel:+38${number}`} onClick={handlerModalClose}>
+                            <StyledLink href={`mailto:${email}`} >
                                 <IconWrite/>
                             </StyledLink>
                         </li>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { db } from "utils/firebase";
 import { ref, get } from "firebase/database";
-import { StyledContainerList, StyledItemList } from "./Contacts.styled";
+import { StyledContainerList, StyledItemList, StyledFirstNameSpan, StyledSecondNameSpan, StyledNumberSpan } from "./Contacts.styled";
 import { ModalCall } from "components/ModalCall/ModalCall";
 
 export function ContactsList({visibleContact}){
@@ -66,7 +66,11 @@ export function ContactsList({visibleContact}){
         {contact &&
         listContacts.map(({id, firstName, secondName, email, number, textarea}) => 
             <li key={id}>
-                <StyledItemList onClick={()=>handleBtnClick(id, firstName, secondName, email, number, textarea)}>{firstName}</StyledItemList>
+                <StyledItemList onClick={()=>handleBtnClick(id, firstName, secondName, email, number, textarea)}>
+                    <StyledFirstNameSpan>{firstName}</StyledFirstNameSpan>
+                    <StyledSecondNameSpan>{secondName}</StyledSecondNameSpan>
+                    <StyledNumberSpan>{number}</StyledNumberSpan>
+                </StyledItemList>
             </li>)
         }
         </StyledContainerList>
