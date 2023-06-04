@@ -76,6 +76,8 @@ export function Modal({ModalClose}){
             Notify.failure('Пробачьте, щось пішло не так!')
             console.error("Ошибка при добавлении в базу данных: ", error);
           }); 
+
+          e.target.reset();
     };
 
 // Слушатель изменений в базе данных
