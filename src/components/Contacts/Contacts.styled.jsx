@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { displayFlex } from "utils/display-flex";
 
 export const StyledContainerList = styled.ul`
     display: flex;
