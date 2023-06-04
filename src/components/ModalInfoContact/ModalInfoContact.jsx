@@ -8,6 +8,7 @@ import {
     StyledButtonList,
     StyledLink,
     StyledInfoList,
+    StyledText,
 } from "./ModalInfoContact.styled";
 import IconClose from "utils/search-svg";
 import IconTelephoneFill from "utils/telefon-svg";
@@ -70,7 +71,7 @@ export function ModalInfoContact({firstName, secondName, email, number, textarea
                         </li>
                         <li>
                             <h3>Примітка:</h3>
-                            <p>{textarea}</p>
+                            <StyledText>{textarea}</StyledText>
                         </li>
                     </StyledInfoList>
                     <StyledButtonList>

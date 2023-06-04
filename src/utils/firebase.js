@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyASTHAbguVs2CuYYkaXdLJpSwodnd8Lzzc",
-  authDomain: "phonebook-c7e4a.firebaseapp.com",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
   databaseURL: "https://phonebook-c7e4a-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "phonebook-c7e4a",
-  storageBucket: "phonebook-c7e4a.appspot.com",
-  messagingSenderId: "138103350330",
-  appId: "1:138103350330:web:466a9bf9bf630c54184103"
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID
 };
 const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);

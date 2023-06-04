@@ -107,7 +107,6 @@ export const StyledButtonList = styled.ul`
     margin-top: 20px;
 }
 `
-
 export const StyledLink = styled.a`
     box-sizing: border-box; 
     display: inline-block;
@@ -140,10 +139,13 @@ export const StyledLink = styled.a`
   }
 
 `
-
 export const StyledSpan = styled.span`
   font-size: 18px;
 
   :nth-child(odd) {
     font-weight: bold;
+`
+export const StyledText = styled.p`
+  max-width: 100%;
+  word-break: break-word;
 `

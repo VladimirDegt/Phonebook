@@ -75,7 +75,6 @@ export function Modal({ModalClose}){
         };
         
         const contactRef = push(ref(db, 'contacts'));
-        console.log(contactRef);
         set(contactRef, contact)
           .then(() => {
             Notify.success('Контакт створено успішно')
@@ -84,13 +83,13 @@ export function Modal({ModalClose}){
             setEmail('');
             setNumber('');
             setTextarea('');
+            ModalClose();
           })
           .catch((error) => {
-            Notify.failure('Пробачьте, щось пішло не так!')
+            Notify.failure('Пробачьте, щось пішло не так!');
+            e.target.reset();
             console.error("Ошибка при добавлении в базу данных: ", error);
           }); 
-
-          e.target.reset();
     };
 
     function handleClickBackdrop(e) {

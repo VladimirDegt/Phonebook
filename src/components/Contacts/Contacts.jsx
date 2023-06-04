@@ -31,7 +31,6 @@ export function ContactsList({visibleContact}){
                 const values = Object.values(data);
                 
                 setListContacts(values.filter((item)=> item.firstName.toLowerCase().includes(contact.toLowerCase())));
-        
                 } else {
                 console.log('Данные не найдены');
                 }
@@ -54,11 +53,11 @@ export function ContactsList({visibleContact}){
 
     function handleModalOpen(){
         setIsOpenModal(true)
-      };
+    };
       
-      function ModalClose(){
+    function ModalClose(){
         setIsOpenModal(false)
-      };
+    };
 
     return(
         <>
