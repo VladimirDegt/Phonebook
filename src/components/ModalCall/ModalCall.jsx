@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { 
     StyledBackdrop, 
     StyledModal, 
@@ -14,8 +14,28 @@ import IconClose from "utils/search-svg";
 import IconTelephoneFill from "utils/telefon-svg";
 import { ModalInfoContact } from "components/ModalInfoContact/ModalInfoContact";
 
-export function ModalCall({ModalClose, id, firstName, secondName, email, number, textarea}){
+export function ModalCall({ModalClose, firstName, secondName, email, number, textarea}){
     const [isOpenModal, setIsOpenModal] = useState(false);
+
+    useEffect(()=>{
+    function handleEsc(e) {
+        if (e.code === "Escape") {
+            ModalClose()
+        }
+        };
+
+    document.addEventListener('keydown', handleEsc);
+    return () => {
+    document.removeEventListener('keydown', handleEsc);  
+    }  
+    }, [ModalClose]);
+
+    function handleClickBackdrop(e) {
+    if(e.target !== e.currentTarget){
+        return;
+    }
+    ModalClose()
+      };
 
     function handlerModalClose(){
         ModalClose()
@@ -23,12 +43,11 @@ export function ModalCall({ModalClose, id, firstName, secondName, email, number,
 
     function handleModalInfoContactOpen(){
         setIsOpenModal(true);
-        // ModalClose();
     }
 
     return (
         <>
-        <StyledBackdrop>
+        <StyledBackdrop onClick={handleClickBackdrop}>
             <StyledModal>
                 <StyledButtonClose type="button" onClick={handlerModalClose}>
                     <IconClose />

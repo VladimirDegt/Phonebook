@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { 
     StyledBackdrop,  
     StyledModal, 
@@ -17,13 +17,33 @@ import IconWrite from "utils/email-svg";
 export function ModalInfoContact({firstName, secondName, email, number, textarea}) {
     const [isOpenModal, setIsOpenModal] = useState(true);
 
+    useEffect(()=>{
+        function handleEsc(e) {
+            if (e.code === "Escape") {
+                setIsOpenModal(false)
+            }
+          };
+
+        document.addEventListener('keydown', handleEsc);
+        return () => {
+        document.removeEventListener('keydown', handleEsc);  
+        }  
+    }, []);
+
+    function handleClickBackdrop(e) {
+        if(e.target !== e.currentTarget){
+          return;
+        }
+        setIsOpenModal(false)
+      };
+
     function handlerModalClose(){
         setIsOpenModal(false);
     };
 
     return (
         isOpenModal &&
-        <StyledBackdrop>
+        <StyledBackdrop onClick={handleClickBackdrop}>
             <StyledModal>
                 <StyledButtonClose type="button" onClick={handlerModalClose}>
                     <IconClose />

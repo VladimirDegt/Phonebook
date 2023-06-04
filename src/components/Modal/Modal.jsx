@@ -1,6 +1,6 @@
 import { ref, push, set } from 'firebase/database';
 import { db } from "utils/firebase";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { nanoid } from 'nanoid'
 import { 
     StyledBackdrop, 
@@ -21,6 +21,19 @@ export function Modal({ModalClose}){
     const [email, setEmail] = useState('');
     const [number, setNumber] = useState('');
     const [textarea, setTextarea] = useState('');
+
+    useEffect(()=>{
+        function handleEsc(e) {
+            if (e.code === "Escape") {
+                ModalClose()
+            }
+          };
+
+        document.addEventListener('keydown', handleEsc);
+        return () => {
+        document.removeEventListener('keydown', handleEsc);  
+        }  
+    }, [ModalClose]);
 
     function handleInputVisible({target}){
         switch(target.name){
@@ -80,25 +93,20 @@ export function Modal({ModalClose}){
           e.target.reset();
     };
 
-// Слушатель изменений в базе данных
-// onValue(contactsRef, (snapshot) => {
-//   if (snapshot.exists()) {
-//     const data = snapshot.val();
-//     // console.log(data);
-//   } else {
-//     console.log('Данные не найдены');
-//   }
-// }, {
-//   onlyOnce: true // Чтобы получить данные только один раз
-// });
+    function handleClickBackdrop(e) {
+        if(e.target !== e.currentTarget){
+          return;
+        }
+        ModalClose()
+      };
 
     function handlerModalClose(){
         ModalClose()
     };
 
     return (
-        <StyledBackdrop>
-            <StyledModal>
+        <StyledBackdrop onClick={handleClickBackdrop}>
+            <StyledModal >
                 <StyledButtonClose type="button" onClick={handlerModalClose}>
                     <IconClose />
                 </StyledButtonClose>

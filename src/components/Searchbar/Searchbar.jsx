@@ -7,13 +7,13 @@ function Searchbar({getContact}) {
   const [visibleContact, setVisibleContact] = useState('');
   const [isOpenModal, setIsOpenModal] = useState(false);
 
-const debouncedHandleInputChange = debounce((value) => {
+useEffect(()=>{
+  const debouncedHandleInputChange = debounce((value) => {
     getContact(value);
 }, 300);
 
-useEffect(()=>{
   debouncedHandleInputChange(visibleContact);
-}, [visibleContact]);
+}, [visibleContact, getContact]);
 
 function handleInputChange ({target}) {
     setVisibleContact(target.value);
@@ -39,7 +39,7 @@ return (
         value={visibleContact}
       />
     </StyledForm>
-    <StyledButtonClick type="button" onClick={handleModalOpen}>Новий</StyledButtonClick>
+    <StyledButtonClick type="button" onClick={handleModalOpen}>+Новий</StyledButtonClick>
     {isOpenModal && <Modal ModalClose={ModalClose}/>}
   </StyledHeader>
 )

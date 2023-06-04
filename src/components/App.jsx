@@ -2,6 +2,7 @@ import { useState } from "react";
 import { StyledContainer } from "./App.styled";
 import Searchbar from "./Searchbar";
 import { ContactsList } from "./Contacts/Contacts";
+import { FooterApp } from "./Footer/Footer";
 
 export function App(){
   const [visibleContact, setVisibleContact] = useState('');
@@ -17,6 +18,7 @@ export function App(){
       <Searchbar getContact={getContact}/>
       <ContactsList visibleContact={visibleContact}/>
     </StyledContainer>
+    <FooterApp/>
     </>
   );
 };
