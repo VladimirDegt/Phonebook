@@ -85,7 +85,7 @@ export function ModalInfoContact({firstName, secondName, email, number, textarea
                             </StyledLink>
                         </li>
                         <li>
-                            <StyledLink href={`mailto:${email}`} >
+                            <StyledLink href={`mailto:${email}`} onClick={handlerModalClose}>
                                 <IconWrite/>
                             </StyledLink>
                         </li>

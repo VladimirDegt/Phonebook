@@ -47,7 +47,6 @@ export const StyledButtonClose = styled.button`
 `
 export const StyledTitleModal = styled.h2`
   width: 100%;
-  height: 48px;
   margin: 0;
   text-align: center;
   color: #111111;
@@ -66,8 +65,8 @@ export const StyledFormModal = styled.form`
   gap: 14px;
 `
 export const StyledInfoList = styled.ul`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   padding: 0;
   gap: 20px;
@@ -84,6 +83,11 @@ export const StyledInfoList = styled.ul`
     padding: 0;
     margin: 0;
   }
+
+  @media (max-width: 768px) {
+    gap: 10px;
+    margin-top: 20px;
+}
 `
 
 export const StyledButtonList = styled.ul`
@@ -98,6 +102,10 @@ export const StyledButtonList = styled.ul`
     width: 125px;
     height: 40px;
   }
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+}
 `
 
 export const StyledLink = styled.a`
