@@ -88,6 +88,30 @@ export const StyledInputModal = styled.input`
     font-size: 16px;
   }  
 `
+export const StyledContainerInput = styled.div`
+  position: relative;
+  width: 301px;
+  display: flex;
+  align-items: flex-start;
+
+  input {
+    padding-left: 40px;
+  }
+
+  @media (min-width: 768px) {
+    width: 507px;
+  }
+`
+
+export const StyledSvgInput = styled.span`
+  position: absolute;
+  display: inline-block;
+  top: 13px;
+  left: 8px;
+  font-size: 16px;
+  color: black;
+`
+
 export const StyledTextArea = styled.textarea`
   width: 280px;
   resize: none;

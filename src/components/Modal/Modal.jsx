@@ -9,6 +9,8 @@ import {
     StyledTitleModal, 
     StyledFormModal,
     StyledInputModal,
+    StyledContainerInput,
+    StyledSvgInput,
     StyledTextArea,
     StyledButtonModal,
 } from "./Modal.styled";
@@ -137,17 +139,20 @@ export function Modal({ModalClose}){
                         onChange={handleInputVisible}
                         value={email}
                     />
-                    <StyledInputModal
-                        type="tel"
-                        autoComplete="off"
-                        placeholder="0501112223"
-                        name="number"
-                        required
-                        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                        title="Номер повинен починатися з 050, 096, інше та ще 7 цифр"
-                        onChange={handleInputVisible}
-                        value={number}
-                    />
+                    <StyledContainerInput>
+                        <StyledInputModal
+                            type="tel"
+                            autoComplete="off"
+                            placeholder="0501112223"
+                            name="number"
+                            required
+                            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                            title="Номер повинен починатися з 050, 096, інше та ще 7 цифр"
+                            onChange={handleInputVisible}
+                            value={number}
+                            />
+                        <StyledSvgInput>+38</StyledSvgInput>
+                    </StyledContainerInput>
                     <StyledTextArea 
                         rows="4" 
                         placeholder="Примітка" 

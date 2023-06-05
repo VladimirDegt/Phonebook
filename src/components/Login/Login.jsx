@@ -3,7 +3,6 @@ import { useState } from "react";
 import { 
   StyledBackdrop, 
   StyledModal, 
-  StyledTitleModal, 
   StyledFormModal,
   StyledInputModal,
   StyledButtonModal,
@@ -51,7 +50,6 @@ export function Login({getAuth}) {
     <StyledBackdrop>
         <StyledModal >
             <StyledFormModal onSubmit={handleFormSubmit}>
-            <StyledTitleModal>Інформація про замовника</StyledTitleModal>
                 <StyledInputModal
                     type="email"
                     autoComplete="on"
@@ -69,7 +67,7 @@ export function Login({getAuth}) {
                     onChange={handleInputVisible}
                     value={password}
                 />
-                <StyledButtonModal type="submit" >Підтвердити</StyledButtonModal>
+                <StyledButtonModal type="submit" >Вхід</StyledButtonModal>
             </StyledFormModal>
         </StyledModal>
     </StyledBackdrop>    
