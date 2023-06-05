@@ -23,7 +23,6 @@ export function App(){
     <>
       {isAuth && 
       <>
-        {/* <Global styles={global}/> */}
         <StyledContainer>
           <Searchbar getContact={getContact}/>
           <ContactsList visibleContact={visibleContact}/>
