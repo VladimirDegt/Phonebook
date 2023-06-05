@@ -1,7 +1,19 @@
 import { useEffect, useState } from "react";
 import { db } from "utils/firebase";
 import { ref, get } from "firebase/database";
-import { StyledContainerList } from "./Contacts.styled";
+import { 
+    StyledContainerTable, 
+    StyledFirstRow, 
+    StyledSecondRow,
+    StyledThirdRow,
+    StyledFourthRow,
+    StyledFiveRow,
+    StyledFirstRowHead,
+    StyledSecondRowHead,
+    StyledThirdRowHead,
+    StyledFourthRowHead,
+    StyledFiveRowHead,
+} from "./Contacts.styled";
 import { ModalCall } from "components/ModalCall/ModalCall";
 
 export function ContactsList({visibleContact}){
@@ -61,23 +73,26 @@ export function ContactsList({visibleContact}){
 
     return(
         <>
-        <StyledContainerList>
+        <StyledContainerTable>
         <thead>
             <tr>
-            <th>Назва замовника</th>
-            <th>Ім'я представника</th>
-            <th>Телефон</th>
+            <StyledFirstRowHead>Назва замовника</StyledFirstRowHead>
+            <StyledSecondRowHead>Ім'я представника</StyledSecondRowHead>
+            <StyledThirdRowHead>Телефон</StyledThirdRowHead>
+            <StyledFourthRowHead>Email</StyledFourthRowHead>
+            <StyledFiveRowHead>Примітка</StyledFiveRowHead>
             </tr>
         </thead>
-        <tbody>
-        {contact && listContacts.map(({id, firstName, secondName, email, number, textarea}) =>
-            <tr key={id} onClick={()=>handleBtnClick(id, firstName, secondName, email, number, textarea)}>
-            <td>{firstName}</td>
-            <td>{secondName}</td>
-            <td>{number}</td>
-            </tr>)}
-        </tbody>
-        </StyledContainerList>
+        <tbody>{contact && listContacts.map(({id,firstName,secondName,email,number,textarea})=>(
+        <tr key={id}>
+            <StyledFirstRow onClick={()=>handleBtnClick(id,firstName,secondName,email,number,textarea)}>{firstName}</StyledFirstRow>
+            <StyledSecondRow>{secondName}</StyledSecondRow>
+            <StyledThirdRow>{number}</StyledThirdRow>
+            <StyledFourthRow>{email}</StyledFourthRow>
+            <StyledFiveRow>{textarea}</StyledFiveRow>
+        </tr>
+            ))}</tbody>
+        </StyledContainerTable>
         {isOpenModal && <ModalCall 
         ModalClose={ModalClose}
         id = {id}
