@@ -38,10 +38,12 @@ export function Login({getAuth}) {
       if(user) {
         getAuth();
       } 
-      // ...
     })
     .catch((error) => {
-      Notify.failure('Не вірна пошта або пароль!')
+    Notify.failure('Не вірна пошта або пароль!', {
+      position: 'center-top',
+      distance: '100px',
+    })
     });
       e.target.reset();
 };

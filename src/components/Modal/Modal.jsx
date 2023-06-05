@@ -79,7 +79,10 @@ export function Modal({ModalClose}){
         const contactRef = push(ref(db, 'contacts'));
         set(contactRef, contact)
           .then(() => {
-            Notify.success('Контакт створено успішно')
+            Notify.success('Контакт додано', {
+                position: 'center-top',
+                distance: '100px',
+              })
             setFirstName('');
             setSecondName('');
             setEmail('');
@@ -88,7 +91,10 @@ export function Modal({ModalClose}){
             ModalClose();
           })
           .catch((error) => {
-            Notify.failure('Пробачьте, щось пішло не так!');
+            Notify.failure('Пробачьте, щось пішло не так!', {
+                position: 'center-top',
+                distance: '100px',
+              });
             e.target.reset();
             console.error("Ошибка при добавлении в базу данных: ", error);
           }); 

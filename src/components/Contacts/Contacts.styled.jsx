@@ -1,13 +1,24 @@
 import styled from "@emotion/styled";
 
-export const StyledContainerList = styled.ul`
+export const StyledContainerList = styled.table`
     display: flex;
     flex-direction: column;
     padding: 0;
     margin-top: 20px;
     margin-left: 12px;
-    gap: 20px;
-    list-style-type: none;
+    border-collapse: collapse;
+
+    thead th {
+        text-align: center;
+    }
+
+    th,
+    td {
+        width: 300px;
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
 
     @media (min-width: 768px) {
         margin-left: 30px;

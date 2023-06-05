@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { db } from "utils/firebase";
 import { ref, get } from "firebase/database";
-import { StyledContainerList, StyledItemList, StyledFirstNameSpan, StyledSecondNameSpan, StyledNumberSpan } from "./Contacts.styled";
+import { StyledContainerList } from "./Contacts.styled";
 import { ModalCall } from "components/ModalCall/ModalCall";
 
 export function ContactsList({visibleContact}){
@@ -62,16 +62,21 @@ export function ContactsList({visibleContact}){
     return(
         <>
         <StyledContainerList>
-        {contact &&
-        listContacts.map(({id, firstName, secondName, email, number, textarea}) => 
-            <li key={id}>
-                <StyledItemList onClick={()=>handleBtnClick(id, firstName, secondName, email, number, textarea)}>
-                    <StyledFirstNameSpan>{firstName}</StyledFirstNameSpan>
-                    <StyledSecondNameSpan>{secondName}</StyledSecondNameSpan>
-                    <StyledNumberSpan>{number}</StyledNumberSpan>
-                </StyledItemList>
-            </li>)
-        }
+        <thead>
+            <tr>
+            <th>Назва замовника</th>
+            <th>Ім'я представника</th>
+            <th>Телефон</th>
+            </tr>
+        </thead>
+        <tbody>
+        {contact && listContacts.map(({id, firstName, secondName, email, number, textarea}) =>
+            <tr key={id} onClick={()=>handleBtnClick(id, firstName, secondName, email, number, textarea)}>
+            <td>{firstName}</td>
+            <td>{secondName}</td>
+            <td>{number}</td>
+            </tr>)}
+        </tbody>
         </StyledContainerList>
         {isOpenModal && <ModalCall 
         ModalClose={ModalClose}
