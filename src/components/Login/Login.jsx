@@ -1,3 +1,4 @@
+import { Notify } from 'notiflix';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { 
@@ -36,13 +37,12 @@ export function Login({getAuth}) {
       const user = userCredential.user;
       if(user) {
         getAuth();
-      }
+      } 
       // ...
     })
     .catch((error) => {
-      console.log(error.message);
+      Notify.failure('Не вірна пошта або пароль!')
     });
-
       e.target.reset();
 };
 
