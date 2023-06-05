@@ -29,7 +29,7 @@ export function Modal({ModalClose}){
             if (e.code === "Escape") {
                 ModalClose()
             }
-          };
+        };
 
         document.addEventListener('keydown', handleEsc);
         return () => {
@@ -65,7 +65,7 @@ export function Modal({ModalClose}){
         if (number.length !== 10) {
             Notify.failure('Невірний формат номеру!')
             return;
-          }
+        }
     
         const contact = {
             id: nanoid(),

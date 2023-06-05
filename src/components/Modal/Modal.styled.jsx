@@ -106,7 +106,7 @@ export const StyledContainerInput = styled.div`
 export const StyledSvgInput = styled.span`
   position: absolute;
   display: inline-block;
-  top: 13px;
+  top: 10px;
   left: 8px;
   font-size: 16px;
   color: black;

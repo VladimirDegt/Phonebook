@@ -39,6 +39,7 @@ export const StyledFormInput = styled.input`
   }
 `
 export const StyledButtonClick = styled.button`
+  height: 46px;
   padding: 8px;
   border-radius: 4px;
   background-color: #FAFAFA;
@@ -61,7 +62,8 @@ export const StyledButtonClick = styled.button`
 
 :hover,
 :focus {
-  background-color: #d2d0cc;
-  color: #111111;
+  background-color: #3f51b5;
+  color: #fff;
+  border: 1px solid #fff;
 `
 

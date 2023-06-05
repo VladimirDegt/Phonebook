@@ -5,8 +5,8 @@ position: fixed;
 bottom: 0;
 left: 0;
 width: 100%;
-background-color: rgba(0, 0, 0, 0.8);
-color: #fff;
+background-color: #2E2F42;
+color: #FFFFFF;
 padding: 10px;
 text-align: center;
 

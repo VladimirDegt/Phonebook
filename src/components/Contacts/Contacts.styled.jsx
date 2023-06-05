@@ -13,7 +13,7 @@ export const StyledContainerTable = styled.table`
 
     th,
     td {
-        border: 1px solid black;
+        border: 1px solid #2E2F42;
         padding: 8px;
     }
 `
@@ -40,8 +40,8 @@ export const StyledFourthRowHead = styled.th`
     }
 `
 export const StyledFiveRowHead = styled.th`
-    width: 202.11px;
-    @media (max-width: 1620px) {
+    width: 300px;
+    @media (max-width: 1400px) {
         display: none;
     }
 `
@@ -55,7 +55,7 @@ export const StyledFirstRow = styled.td`
 
     :hover,
     :focus {
-        color: black;
+        color: #434455;
     }
 `
 export const StyledSecondRow = styled.td`
@@ -80,9 +80,11 @@ text-align: center;
 }
 `
 export const StyledFiveRow = styled.td`
-width: 200px;
+width: 300px;
+max-width: 100%;
+word-break: break-word;
 text-align: center;
-@media (max-width: 1620px) {
+@media (max-width: 1400px) {
     display: none;
 }
 `
