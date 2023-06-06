@@ -39,9 +39,13 @@ export function ContactsList({visibleContact}){
         .then((snapshot) => {
             if (snapshot.exists()) {
             const data = snapshot.val();
-            const values = Object.values(data);
             
-            setListContacts(values.filter((item)=> item.firstName.toLowerCase().includes(contact.toLowerCase())));
+            const resultListContacts = [];
+            for (let item in data) {
+                resultListContacts.push([item, data[item]])
+            };
+
+            setListContacts(resultListContacts.filter(([_,{firstName}]) => firstName.toLowerCase().includes(contact.toLowerCase())));
             } else {
             console.log('Данные не найдены');
             }
@@ -81,15 +85,16 @@ export function ContactsList({visibleContact}){
             <StyledFiveRowHead>Примітка</StyledFiveRowHead>
             </tr>
         </thead>
-        <tbody>{listContacts.map(({id,firstName,secondName,email,number,textarea})=>(
+        <tbody>{listContacts.map(([id,{firstName,secondName,email,number,textarea}])=>(
         <tr key={id}>
-            <StyledFirstRow onClick={()=>handleBtnClick(id,firstName,secondName,email,number,textarea)}>{firstName}</StyledFirstRow>
+            <StyledFirstRow onClick={()=>handleBtnClick(firstName)}>{firstName}</StyledFirstRow>
             <StyledSecondRow>{secondName}</StyledSecondRow>
             <StyledThirdRow>{number}</StyledThirdRow>
             <StyledFourthRow>{email}</StyledFourthRow>
             <StyledFiveRow>{textarea}</StyledFiveRow>
         </tr>
             ))}</tbody>
+
         </StyledContainerTable>
         {isOpenModal && <ModalCall 
         ModalClose={ModalClose}
