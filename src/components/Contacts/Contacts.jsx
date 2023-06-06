@@ -31,26 +31,24 @@ export function ContactsList({visibleContact}){
         if(visibleContact !== contact){
             setContact(visibleContact)
         };
-        if(contact){
-            // Получение ссылки на "contacts" в базе данных
-            const contactsRef = ref(db, 'contacts');
-        
-            // Получение данных из базы данных
-            get(contactsRef)
-            .then((snapshot) => {
-                if (snapshot.exists()) {
-                const data = snapshot.val();
-                const values = Object.values(data);
-                
-                setListContacts(values.filter((item)=> item.firstName.toLowerCase().includes(contact.toLowerCase())));
-                } else {
-                console.log('Данные не найдены');
-                }
-            })
-            .catch((error) => {
-                console.error('Ошибка при получении данных из базы данных:', error);
-            });
+
+        // Получение ссылки на "contacts" в базе данных
+        const contactsRef = ref(db, 'contacts');
+        // Получение данных из базы данных
+        get(contactsRef)
+        .then((snapshot) => {
+            if (snapshot.exists()) {
+            const data = snapshot.val();
+            const values = Object.values(data);
+            
+            setListContacts(values.filter((item)=> item.firstName.toLowerCase().includes(contact.toLowerCase())));
+            } else {
+            console.log('Данные не найдены');
             }
+        })
+        .catch((error) => {
+            console.error('Ошибка при получении данных из базы данных:', error);
+        });   
     },[contact, visibleContact]);
 
     function handleBtnClick(id, firstName, secondName, email, number, textarea) {
@@ -83,7 +81,7 @@ export function ContactsList({visibleContact}){
             <StyledFiveRowHead>Примітка</StyledFiveRowHead>
             </tr>
         </thead>
-        <tbody>{contact && listContacts.map(({id,firstName,secondName,email,number,textarea})=>(
+        <tbody>{listContacts.map(({id,firstName,secondName,email,number,textarea})=>(
         <tr key={id}>
             <StyledFirstRow onClick={()=>handleBtnClick(id,firstName,secondName,email,number,textarea)}>{firstName}</StyledFirstRow>
             <StyledSecondRow>{secondName}</StyledSecondRow>
