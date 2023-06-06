@@ -17,7 +17,7 @@ export const StyledModal = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 15px;
-  background-color: #FAFAFA;
+  background-color: #FCFCFC;
 
   @media (min-width: 768px) {
     width: 400px;

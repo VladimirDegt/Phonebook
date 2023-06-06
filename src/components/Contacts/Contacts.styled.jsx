@@ -88,4 +88,9 @@ text-align: center;
     display: none;
 }
 `
+export const StyledChangeBtn = styled.button`
+border: none;
+background-color: inherit;
+cursor: pointer;
 
+`

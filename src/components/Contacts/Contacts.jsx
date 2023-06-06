@@ -13,13 +13,17 @@ import {
     StyledThirdRowHead,
     StyledFourthRowHead,
     StyledFiveRowHead,
+    StyledChangeBtn,
 } from "./Contacts.styled";
 import { ModalCall } from "components/ModalCall/ModalCall";
+import { ModalChange } from "components/ModalChange/ModalChange";
+import IconWrite from "utils/change-svg";
 
 export function ContactsList({visibleContact}){
     const [contact, setContact] = useState('');
     const [listContacts, setListContacts] = useState([]);
     const [isOpenModal, setIsOpenModal] = useState(false);
+    const [isOpenChangeModal, setIsOpenChangeModal] = useState(false);
     const [id, setId] = useState('');
     const [firstName, setFirstName] = useState('');
     const [secondName, setSecondName] = useState('');
@@ -68,9 +72,27 @@ export function ContactsList({visibleContact}){
     function handleModalOpen(){
         setIsOpenModal(true)
     };
+
+    function handleBtnChangeClick(id, firstName, secondName, email, number, textarea) {
+        setId(id);
+        setFirstName(firstName);
+        setSecondName(secondName);
+        setEmail(email);
+        setNumber(number);
+        setTextarea(textarea);
+        handleChangeModalOpen();
+    };
+
+    function handleChangeModalOpen(){
+        setIsOpenChangeModal(true)
+    };
       
-    function ModalClose(){
+    function modalClose(){
         setIsOpenModal(false)
+    };
+
+    function modalChangeClose(){
+        setIsOpenChangeModal(false)
     };
 
     return(
@@ -87,17 +109,20 @@ export function ContactsList({visibleContact}){
         </thead>
         <tbody>{listContacts.map(([id,{firstName,secondName,email,number,textarea}])=>(
         <tr key={id}>
-            <StyledFirstRow onClick={()=>handleBtnClick(firstName)}>{firstName}</StyledFirstRow>
+            <StyledFirstRow onClick={()=>handleBtnClick(id,firstName,secondName,email,number,textarea)}>{firstName}</StyledFirstRow>
             <StyledSecondRow>{secondName}</StyledSecondRow>
             <StyledThirdRow>{number}</StyledThirdRow>
             <StyledFourthRow>{email}</StyledFourthRow>
             <StyledFiveRow>{textarea}</StyledFiveRow>
+            <StyledChangeBtn type="button" onClick={()=>handleBtnChangeClick(id,firstName,secondName,email,number,textarea)}>
+                <IconWrite/>
+            </StyledChangeBtn>
         </tr>
             ))}</tbody>
-
         </StyledContainerTable>
+
         {isOpenModal && <ModalCall 
-        ModalClose={ModalClose}
+        ModalClose={modalClose}
         id = {id}
         firstName = {firstName}
         secondName = {secondName}
@@ -105,6 +130,18 @@ export function ContactsList({visibleContact}){
         number = {number}
         textarea = {textarea}
         />}
+
+        {isOpenChangeModal && <ModalChange
+        modalChangeClose={modalChangeClose}
+        id = {id}
+        firstName = {firstName}
+        secondName = {secondName}
+        email = {email}
+        number = {number}
+        textarea = {textarea}
+        />}
+
+
         </>
     )
 

@@ -3,16 +3,16 @@ import * as React from "react";
 function IconWrite(props) {
   return (
     <svg
-      viewBox="0 0 24 24"
+      viewBox="0 -3 22 24"
       fill="#000000"
-      height="40px"
-      width="40px"
+      height="30px"
+      width="30px"
       {...props}
     >
       <g
         fill="none"
         fillRule="evenodd"
-        stroke="#CC9900"
+        stroke="#00CC33"
         strokeLinecap="round"
         strokeLinejoin="round"
       >

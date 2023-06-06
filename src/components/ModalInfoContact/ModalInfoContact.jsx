@@ -13,7 +13,7 @@ import {
 import IconClose from "utils/search-svg";
 import IconTelephoneFill from "utils/telefon-svg";
 import IconViber from "utils/viber-svg";
-import IconWrite from "utils/email-svg";
+import IconEnvelope from "utils/envelope-svg";
 
 export function ModalInfoContact({firstName, secondName, email, number, textarea}) {
     const [isOpenModal, setIsOpenModal] = useState(true);
@@ -87,7 +87,7 @@ export function ModalInfoContact({firstName, secondName, email, number, textarea
                         </li>
                         <li>
                             <StyledLink href={`mailto:${email}`} target="_blank" onClick={handlerModalClose}>
-                                <IconWrite/>
+                                <IconEnvelope/>
                             </StyledLink>
                         </li>
                     </StyledButtonList>
