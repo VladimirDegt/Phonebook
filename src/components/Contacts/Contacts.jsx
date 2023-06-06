@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { db } from "utils/firebase";
 import { ref, get } from "firebase/database";
+import { db } from "utils/firebase";
 import { 
     StyledContainerTable, 
     StyledFirstRow, 
@@ -14,16 +14,20 @@ import {
     StyledFourthRowHead,
     StyledFiveRowHead,
     StyledChangeBtn,
+    StyledLink,
 } from "./Contacts.styled";
 import { ModalCall } from "components/ModalCall/ModalCall";
 import { ModalChange } from "components/ModalChange/ModalChange";
+import { ModalDeleteContact } from "components/ModalDeleteContact/ModalDeleteContact";
 import IconWrite from "utils/change-svg";
+import IconDelete from "utils/delete-svg";
 
 export function ContactsList({visibleContact}){
     const [contact, setContact] = useState('');
     const [listContacts, setListContacts] = useState([]);
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [isOpenChangeModal, setIsOpenChangeModal] = useState(false);
+    const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
     const [id, setId] = useState('');
     const [firstName, setFirstName] = useState('');
     const [secondName, setSecondName] = useState('');
@@ -83,6 +87,11 @@ export function ContactsList({visibleContact}){
         handleChangeModalOpen();
     };
 
+    function handleBtnDeleteClick(id) {
+        setId(id);
+        setIsOpenDeleteModal(true);
+    }
+
     function handleChangeModalOpen(){
         setIsOpenChangeModal(true)
     };
@@ -93,6 +102,10 @@ export function ContactsList({visibleContact}){
 
     function modalChangeClose(){
         setIsOpenChangeModal(false)
+    };
+
+    function modalDeleteClose(){
+        setIsOpenDeleteModal(false)
     };
 
     return(
@@ -111,11 +124,22 @@ export function ContactsList({visibleContact}){
         <tr key={id}>
             <StyledFirstRow onClick={()=>handleBtnClick(id,firstName,secondName,email,number,textarea)}>{firstName}</StyledFirstRow>
             <StyledSecondRow>{secondName}</StyledSecondRow>
-            <StyledThirdRow>{number}</StyledThirdRow>
-            <StyledFourthRow>{email}</StyledFourthRow>
+            <StyledThirdRow>
+                <StyledLink href={`viber://chat?number=+38${number}`}>
+                    {number}
+                </StyledLink>
+            </StyledThirdRow>
+            <StyledFourthRow>
+                <StyledLink href={`mailto:${email}`} target="_blank">
+                    {email}
+                </StyledLink>
+            </StyledFourthRow>
             <StyledFiveRow>{textarea}</StyledFiveRow>
             <StyledChangeBtn type="button" onClick={()=>handleBtnChangeClick(id,firstName,secondName,email,number,textarea)}>
                 <IconWrite/>
+            </StyledChangeBtn>
+            <StyledChangeBtn type="button" onClick={()=>handleBtnDeleteClick(id)}>
+                <IconDelete/>
             </StyledChangeBtn>
         </tr>
             ))}</tbody>
@@ -141,8 +165,9 @@ export function ContactsList({visibleContact}){
         textarea = {textarea}
         />}
 
-
-        </>
+        {isOpenDeleteModal && <ModalDeleteContact 
+        id={id}
+        modalDeleteClose= {modalDeleteClose}/>}
+    </>
     )
-
 }

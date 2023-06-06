@@ -49,13 +49,13 @@ export const StyledFirstRow = styled.td`
     width: 300px;
     font-size: 16px;
     weight: 500;
-    color: #3f51b5;
+    color: #0000FF;
     cursor: pointer;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     :hover,
     :focus {
-        color: #434455;
+        color: #6699FF;
     }
 `
 export const StyledSecondRow = styled.td`
@@ -92,5 +92,15 @@ export const StyledChangeBtn = styled.button`
 border: none;
 background-color: inherit;
 cursor: pointer;
+`
+export const StyledLink = styled.a`
+    text-decoration: none;
+    color: #0000FF;
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
+    :hover,
+    :focus {
+      color: #6699FF;
+    }
 `
