@@ -46,10 +46,10 @@ export function Modal({ModalClose}){
                 setSecondName(target.value);
                 break;
             case 'email':
-                setEmail(target.value);
+                setEmail(target.value.trim());
                 break;
             case 'number':
-                setNumber(target.value);
+                setNumber(target.value.trim());
                 break;
             case 'textarea':
                 setTextarea(target.value);
@@ -100,19 +100,20 @@ export function Modal({ModalClose}){
           }); 
     };
 
-    function handleClickBackdrop(e) {
-        if(e.target !== e.currentTarget){
-          return;
-        }
-        ModalClose()
-      };
+    // function handleClickBackdrop(e) {
+    //     if(e.target !== e.currentTarget){
+    //       return;
+    //     }
+    //     ModalClose()
+    //   };
 
     function handlerModalClose(){
         ModalClose()
     };
 
     return (
-        <StyledBackdrop onClick={handleClickBackdrop}>
+        // <StyledBackdrop onClick={handleClickBackdrop}>
+        <StyledBackdrop>
             <StyledModal >
                 <StyledButtonClose type="button" onClick={handlerModalClose}>
                     <IconClose />
