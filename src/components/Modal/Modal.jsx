@@ -30,7 +30,6 @@ export function Modal({ModalClose}){
                 ModalClose()
             }
         };
-
         document.addEventListener('keydown', handleEsc);
         return () => {
         document.removeEventListener('keydown', handleEsc);  
@@ -100,19 +99,11 @@ export function Modal({ModalClose}){
           }); 
     };
 
-    // function handleClickBackdrop(e) {
-    //     if(e.target !== e.currentTarget){
-    //       return;
-    //     }
-    //     ModalClose()
-    //   };
-
     function handlerModalClose(){
         ModalClose()
     };
 
     return (
-        // <StyledBackdrop onClick={handleClickBackdrop}>
         <StyledBackdrop>
             <StyledModal >
                 <StyledButtonClose type="button" onClick={handlerModalClose}>

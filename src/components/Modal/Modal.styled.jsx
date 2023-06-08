@@ -77,10 +77,14 @@ export const StyledInputModal = styled.input`
   font-size: 14px;
   line-height: 17px;
   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Roboto';
+  color: #434455;
 
   :hover,
   :focus {
     border: 1.5px solid #3f51b5;
+    font-family: 'Roboto';
+    color: #434455;
   }
 
   @media (min-width: 768px) {
@@ -129,6 +133,13 @@ export const StyledTextArea = styled.textarea`
   :hover,
   :focus {
     border: 1.5px solid #3f51b5;
+    font-family: 'Roboto';
+    color: #434455;
+  }
+
+  ::placeholder {
+    font-family: 'Roboto';
+    color: #434455;
   }
 
   @media (min-width: 768px) {

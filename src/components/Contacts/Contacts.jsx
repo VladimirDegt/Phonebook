@@ -135,39 +135,44 @@ export function ContactsList({visibleContact}){
                 </StyledLink>
             </StyledFourthRow>
             <StyledFiveRow>{textarea}</StyledFiveRow>
+            <td>
             <StyledChangeBtn type="button" onClick={()=>handleBtnChangeClick(id,firstName,secondName,email,number,textarea)}>
                 <IconWrite/>
             </StyledChangeBtn>
+            </td>
+            <td>
             <StyledChangeBtn type="button" onClick={()=>handleBtnDeleteClick(id)}>
                 <IconDelete/>
             </StyledChangeBtn>
+            </td>
         </tr>
             ))}</tbody>
         </StyledContainerTable>
 
         {isOpenModal && <ModalCall 
-        ModalClose={modalClose}
-        id = {id}
-        firstName = {firstName}
-        secondName = {secondName}
-        email = {email}
-        number = {number}
-        textarea = {textarea}
+          ModalClose={modalClose}
+          id = {id}
+          firstName = {firstName}
+          secondName = {secondName}
+          email = {email}
+          number = {number}
+          textarea = {textarea}
         />}
 
         {isOpenChangeModal && <ModalChange
-        modalChangeClose={modalChangeClose}
-        id = {id}
-        firstName = {firstName}
-        secondName = {secondName}
-        email = {email}
-        number = {number}
-        textarea = {textarea}
+          modalChangeClose={modalChangeClose}
+          id = {id}
+          firstName = {firstName}
+          secondName = {secondName}
+          email = {email}
+          number = {number}
+          textarea = {textarea}
         />}
 
         {isOpenDeleteModal && <ModalDeleteContact 
-        id={id}
-        modalDeleteClose= {modalDeleteClose}/>}
+          id={id}
+          modalDeleteClose= {modalDeleteClose}
+        />}
     </>
     )
 }
