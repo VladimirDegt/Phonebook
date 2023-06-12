@@ -21,6 +21,7 @@ import { ModalChange } from "components/ModalChange/ModalChange";
 import { ModalDeleteContact } from "components/ModalDeleteContact/ModalDeleteContact";
 import IconWrite from "utils/change-svg";
 import IconDelete from "utils/delete-svg";
+import { EMAIL_BODY } from "utils/email-body-text";
 
 export function ContactsList({visibleContact}){
     const [contact, setContact] = useState('');
@@ -130,7 +131,7 @@ export function ContactsList({visibleContact}){
                 </StyledLink>
             </StyledThirdRow>
             <StyledFourthRow>
-                <StyledLink href={`mailto:${email}`} target="_blank">
+                <StyledLink href={`mailto:${email}?subject=КП%20"Міський%20інформаційний%20центр"&body=${EMAIL_BODY}`} target="_blank">
                     {email}
                 </StyledLink>
             </StyledFourthRow>
