@@ -49,7 +49,6 @@ export const StyledFirstRow = styled.td`
     width: 300px;
     font-size: 16px;
     weight: 500;
-    color: #0000FF;
     cursor: pointer;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -95,7 +94,6 @@ cursor: pointer;
 `
 export const StyledLink = styled.a`
     text-decoration: none;
-    color: #0000FF;
     cursor: pointer;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 

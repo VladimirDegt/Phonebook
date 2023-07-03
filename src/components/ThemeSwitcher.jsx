@@ -9,6 +9,7 @@ export const lightTheme = extendTheme({
   fonts: {
     body: `'Roboto', sans-serif`,
   },
+  
 });
 
 export const darkTheme = extendTheme({

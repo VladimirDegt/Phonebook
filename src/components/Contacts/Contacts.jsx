@@ -1,4 +1,4 @@
-import { DeleteIcon, EditIcon } from '@chakra-ui/icons'
+import { DeleteIcon, EditIcon } from '@chakra-ui/icons';
 import { useEffect, useState } from "react";
 import { ref, get } from "firebase/database";
 import { db } from "utils/firebase";
@@ -110,7 +110,7 @@ export function ContactsList({visibleContact}){
 
     return(
         <>
-        <StyledContainerTable>
+                <StyledContainerTable>
         <thead>
             <tr>
             <StyledFirstRowHead>Назва замовника</StyledFirstRowHead>
@@ -121,7 +121,7 @@ export function ContactsList({visibleContact}){
             </tr>
         </thead>
         <tbody>{listContacts.map(([id,{firstName,secondName,email,number,textarea}])=>(
-        <tr key={id}>
+        <tr key={id} >
             <StyledFirstRow onClick={()=>handleBtnClick(id,firstName,secondName,email,number,textarea)}>{firstName}</StyledFirstRow>
             <StyledSecondRow>{secondName}</StyledSecondRow>
             <StyledThirdRow>
