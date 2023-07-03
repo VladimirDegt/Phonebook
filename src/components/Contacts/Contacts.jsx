@@ -1,3 +1,4 @@
+import { DeleteIcon, EditIcon } from '@chakra-ui/icons'
 import { useEffect, useState } from "react";
 import { ref, get } from "firebase/database";
 import { db } from "utils/firebase";
@@ -19,8 +20,6 @@ import {
 import { ModalCall } from "components/ModalCall/ModalCall";
 import { ModalChange } from "components/ModalChange/ModalChange";
 import { ModalDeleteContact } from "components/ModalDeleteContact/ModalDeleteContact";
-import IconWrite from "utils/change-svg";
-import IconDelete from "utils/delete-svg";
 import { EMAIL_BODY } from "utils/email-body-text";
 
 export function ContactsList({visibleContact}){
@@ -138,12 +137,12 @@ export function ContactsList({visibleContact}){
             <StyledFiveRow>{textarea}</StyledFiveRow>
             <td>
             <StyledChangeBtn type="button" onClick={()=>handleBtnChangeClick(id,firstName,secondName,email,number,textarea)}>
-                <IconWrite/>
+                <EditIcon color="green.500"/>
             </StyledChangeBtn>
             </td>
             <td>
             <StyledChangeBtn type="button" onClick={()=>handleBtnDeleteClick(id)}>
-                <IconDelete/>
+                <DeleteIcon color="red.500"/>
             </StyledChangeBtn>
             </td>
         </tr>

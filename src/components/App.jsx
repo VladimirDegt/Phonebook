@@ -1,9 +1,11 @@
+import { ChakraProvider, CSSReset  } from "@chakra-ui/react";
 import { useState } from "react";
 import { StyledContainer } from "./App.styled";
 import Searchbar from "./Searchbar";
 import { ContactsList } from "./Contacts/Contacts";
 import { FooterApp } from "./Footer/Footer";
 import { Login } from "./Login/Login";
+import { lightTheme } from "./ThemeSwitcher";
 
 export function App(){
   const [visibleContact, setVisibleContact] = useState('');
@@ -20,7 +22,8 @@ export function App(){
   };
   
   return (
-    <>
+    <ChakraProvider theme={lightTheme}>
+    <CSSReset />
       {isAuth && 
       <>
         <StyledContainer>
@@ -31,6 +34,6 @@ export function App(){
       </> 
       }
       {closeAuth && <Login getAuth={getAuth}/>}
-    </>
+    </ChakraProvider>
   );
 };
