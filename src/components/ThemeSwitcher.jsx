@@ -3,8 +3,8 @@ import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 
 export const lightTheme = extendTheme({
   colors: {
-    background: "#FAFAFA",
-    text: "#333333",
+    background: "#F5F5F5",
+    text: "#121212",
   },
   fonts: {
     body: `'Roboto', sans-serif`,
@@ -14,8 +14,8 @@ export const lightTheme = extendTheme({
 
 export const darkTheme = extendTheme({
   colors: {
-    background: "#333333",
-    text: "#FAFAFA",
+    background: "#121212",
+    text: "#F5F5F5",
   },
   fonts: {
     body: `'Roboto', sans-serif`,
