@@ -17,7 +17,8 @@ export const StyledModal = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 15px;
-  background-color: #FCFCFC;
+  background-color: ${({theme}) =>
+    theme === "dark" ? "#333333" : "#FAFAFA"};
 
   @media (min-width: 768px) {
     width: 517px;
@@ -50,7 +51,6 @@ export const StyledTitleModal = styled.h2`
   height: 48px;
   margin: 0;
   text-align: center;
-  color: #111111;
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
@@ -109,7 +109,6 @@ export const StyledSvgInput = styled.span`
   top: 10px;
   left: 8px;
   font-size: 16px;
-  color: black;
 `
 
 export const StyledTextArea = styled.textarea`
